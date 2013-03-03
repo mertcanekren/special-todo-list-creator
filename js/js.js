@@ -1,3 +1,7 @@
+ /*
+ * @author      Mertcan Ekren
+ * @license		http://en.wikipedia.org/wiki/MIT_License
+ */
 $(function(){
 	gettodolists();
 	$('.newlist').click(function(){	

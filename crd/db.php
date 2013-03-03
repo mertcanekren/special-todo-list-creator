@@ -1,4 +1,8 @@
 <?php
+	/*
+	 * @author      Mertcan Ekren
+	 * @license		http://en.wikipedia.org/wiki/MIT_License
+	 */
 	$db = new SQLite3('tododatabase.db',SQLITE3_OPEN_READWRITE);
 	if($_POST){
 		if($_POST["todoid"] && $_POST["process"]){
