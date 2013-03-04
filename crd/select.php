@@ -3,8 +3,8 @@
  * @author      Mertcan Ekren
  * @license		http://en.wikipedia.org/wiki/MIT_License
  */
- error_reporting(0);
-	ini_set('display_errors', false);
+error_reporting(0);
+ini_set('display_errors', false);
 $db = new SQLite3('tododatabase.db');
 
 // Get todo list
