@@ -13,8 +13,8 @@ body{
 	background: #F1F1F1;
 	height: 76px;
 	position: relative;
-	border-bottom: 5px solid #444;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+	border-bottom: 3px solid #444;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 .header{
 	width: 960px;
