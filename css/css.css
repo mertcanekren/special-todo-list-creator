@@ -6,7 +6,7 @@ body{
 }
 .clear{
 	clear: both;
-	height: 5px;
+	height: 5px; 
 }
 .headermain{
 	width: 100%;
@@ -206,3 +206,24 @@ body{
 	color: #a9a9a9;
 	text-decoration: line-through;
 }
+.footer{
+	margin: 10px auto;
+	position: relative;
+	width: 760px;
+	border-top: 1px solid #444;
+}
+.footer span{
+    color: #44628e;
+    position: relative;
+    float: right;
+}
+a{
+	color: #444;
+	text-decoration: none;
+}
+.reset{
+	margin:0 auto;
+	position: relative;
+	width: 40px;
+	display: none;
+} 

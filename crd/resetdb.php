@@ -8,4 +8,6 @@
 	$db->exec("delete from projects");
 	$db->exec("delete from todo");
 
-?>
+	header('Location:../');
+
+?>  

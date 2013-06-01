@@ -19,7 +19,7 @@ $(function(){
 			$('#listname').css('border','1px solid red');
 			$('#listname').attr('placeholder',"List Name Required!");
 		}
-	});	
+	});	 
 
 	// new todo
 	$("body").delegate("#newtodoinput", "keypress", function(){
@@ -62,6 +62,7 @@ function newlist(listname) {
 function createtodolist(listname,listid){
 	$('.main').append('<div class="todolist"><div class="todolisttitle">'+listname+'</div><div class="new"><div class="newtodo"></div><input type="text" id="newtodoinput" placeholder="What you going to do?"><input type="hidden" id="projectid" value="'+listid+'"></div><ul></ul></div>');
 	$('.todolist').fadeIn('slow');
+	$('.reset').fadeIn('slow');  
 }
 
 // new todo post
@@ -109,6 +110,7 @@ function gettodolists(){
 				results = JSON.parse(data);
 				if(results.length > 0){
 					$('.newlist').hide();
+					$('.reset').fadeIn();
 				}
 				for (var i = 0, len = results.length; i < len; i++) {				
 					createtodolist(results[i].name,results[i].id)
