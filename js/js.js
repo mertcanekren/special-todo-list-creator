@@ -108,7 +108,7 @@ function gettodolists(){
         	if(data != ""){        		
 				results = JSON.parse(data);
 				if(results.length > 0){
-					//$('.newlist').hide();
+					$('.newlist').hide();
 				}
 				for (var i = 0, len = results.length; i < len; i++) {				
 					createtodolist(results[i].name,results[i].id)
