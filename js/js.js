@@ -1,24 +1,17 @@
- /*
- * @author      Mertcan Ekren
- * @license		http://en.wikipedia.org/wiki/MIT_License
- */
+
 $(function(){
+
 	// Get lists
 	gettodolists();
 	$('.newlist').click(function(){	
-		$('.newlist').fadeOut('slow',function(){
+		$('.newlist').fadeOut('fast',function(){
 			$('.newlistadd').fadeIn('slow');
 		});
 	});
 
 	// new list
 	$('#listsubmit').click(function(){
-		if($('#listname').val() != ""){			
-				newlist($('#listname').val());
-		}else{
-			$('#listname').css('border','1px solid red');
-			$('#listname').attr('placeholder',"List Name Required!");
-		}
+	    newlist($('#listname').val());
 	});	 
 
 	// new todo
@@ -38,6 +31,18 @@ $(function(){
 
 // new list creator
 function newlist(listname) {
+    if(listname){
+        $("body").data("listname", listname);
+        $('#listname').css('border','1px solid green');
+        $('.newlistadd').fadeOut('slow',function(){
+            createtodolist($("body").data("listname"),"2");
+        });
+    }else{
+        $('#listname').css('border','1px solid red');
+        $('#listname').attr('placeholder',"List Name Required!");
+    }
+
+    /*
     $.ajax({
         type: "POST",
         url: "crd/db.php",
@@ -48,21 +53,22 @@ function newlist(listname) {
         success: function (data) {
             if(data["status"]){
             	$('#listname').css('border','1px solid green');
-               	$('.newlistadd').fadeOut('slow',function(){       
+               	$('.newlistadd').fadeOut('slow',function(){
             		createtodolist(data['listname'],data['listid']);
             	});
-            } else {   
+            } else {
             	$('#listname').css('border','1px solid red');
             }
         }
     });
+    */
 }
 
 // new todo list creator
 function createtodolist(listname,listid){
 	$('.main').append('<div class="todolist"><div class="todolisttitle">'+listname+'</div><div class="new"><div class="newtodo"></div><input type="text" id="newtodoinput" placeholder="What you going to do?"><input type="hidden" id="projectid" value="'+listid+'"></div><ul></ul></div>');
 	$('.todolist').fadeIn('slow');
-	$('.reset').fadeIn('slow');  
+	//$('.reset').fadeIn('slow');
 }
 
 // new todo post
@@ -102,6 +108,7 @@ function updatetodo(todoid,process){
 
 //get todo lists
 function gettodolists(){
+    /*
 	$.ajax({
         type: "GET",
         url: "crd/select.php?getlist=1",
@@ -137,5 +144,5 @@ function gettodolists(){
 			}				      
         }            
     });
-
+    */
 }

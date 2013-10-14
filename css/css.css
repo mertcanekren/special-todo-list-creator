@@ -30,6 +30,7 @@ body{
 	text-shadow: -1px -1px rgba(0, 0, 0, 0.4);
 }
 .main{
+    min-height: 200px;
 	margin: 10px auto;
 	position: relative;
 	width: 960px;
@@ -222,6 +223,7 @@ a{
 	text-decoration: none;
 }
 .reset{
+    display: none;
 	margin:0 auto;
 	position: relative;
 	width: 40px;
