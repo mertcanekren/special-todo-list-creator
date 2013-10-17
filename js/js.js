@@ -1,9 +1,11 @@
-
 $(function(){
+
+    Storage();
 
 	// Get lists
 	gettodolists();
-	$('.newlist').click(function(){	
+
+	$('.newlist').click(function(){
 		$('.newlist').fadeOut('fast',function(){
 			$('.newlistadd').fadeIn('slow');
 		});
@@ -17,8 +19,11 @@ $(function(){
 	// new todo
 	$("body").delegate("#newtodoinput", "keypress", function(){
 		if(event.which == 13){
-			newtodo($("#newtodoinput").val(),$('#projectid').val());  
-	   }			  
+            var todo = $("#newtodoinput").val();
+            if(todo){
+                newtodo(todo,$('#projectid').val());
+            }
+	    }
 	});
 
 	// todo check
@@ -27,41 +32,22 @@ $(function(){
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcontent").addClass('todolistcontentfnish');
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcheck").addClass('todolistchecked');
 	});
+
 });
 
 // new list creator
 function newlist(listname) {
     if(listname){
-        $("body").data("listname", listname);
+        localStorage.setItem("listname", listname);
         $('#listname').css('border','1px solid green');
+        $('.newlist').fadeOut('fast');
         $('.newlistadd').fadeOut('slow',function(){
-            createtodolist($("body").data("listname"),"2");
+            createtodolist(localStorage.getItem("listname"),"2");
         });
     }else{
         $('#listname').css('border','1px solid red');
         $('#listname').attr('placeholder',"List Name Required!");
     }
-
-    /*
-    $.ajax({
-        type: "POST",
-        url: "crd/db.php",
-        dataType: "json",
-        data: {
-            'listname': listname
-        },
-        success: function (data) {
-            if(data["status"]){
-            	$('#listname').css('border','1px solid green');
-               	$('.newlistadd').fadeOut('slow',function(){
-            		createtodolist(data['listname'],data['listid']);
-            	});
-            } else {
-            	$('#listname').css('border','1px solid red');
-            }
-        }
-    });
-    */
 }
 
 // new todo list creator
@@ -73,7 +59,8 @@ function createtodolist(listname,listid){
 
 // new todo post
 function newtodo(todo,listid){
- $.ajax({
+    /*
+    $.ajax({
         type: "POST",
         url: "crd/db.php",
         dataType: "json",
@@ -86,6 +73,13 @@ function newtodo(todo,listid){
     		craatetodo(data['todo'],data['todoid'],"todolistcheck","todolistcontent");
         }
     });
+    */
+    //localStorage.setItem("listname", listname);
+
+    $("#newtodoinput").val("")
+    craatetodo(todo,listid,"todolistcheck","todolistcontent");
+
+
 }
 
 //new todo creator
@@ -145,4 +139,16 @@ function gettodolists(){
         }            
     });
     */
+
+    if (localStorage.getItem("listname") !== 'undefined' && localStorage.getItem("listname") !== null){
+        $('.newlist').hide();
+        createtodolist(localStorage.getItem("listname"),"1");
+    }
+    //localStorage.removeItem("name");
+}
+
+function Storage(){
+    if(typeof(Storage) === "undefined"){
+        alert("doesn't browser web storage");
+    }
 }
