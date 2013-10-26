@@ -22,6 +22,12 @@ $(function(){
             var todo = $("#newtodoinput").val();
             if(todo){
                 newTodo(todo,$('#projectid').val());
+                localStorage.setItem("row["+$(".todolist ul li").size()+"]", todo);
+                if (localStorage.rowcount){
+                    localStorage.rowcount=Number(localStorage.rowcount)+1;
+                }else{
+                    localStorage.rowcount=Number(0)+1;
+                }
             }
 	    }
 	});
@@ -52,7 +58,17 @@ function newList(listname) {
 
 // new todo list creator
 function createTodoList(listname,listid){
-	$('.main').append('<div class="todolist"><div class="todolisttitle">'+listname+'</div><div class="new"><div class="newtodo"></div><input type="text" id="newtodoinput" placeholder="What you going to do?"><input type="hidden" id="projectid" value="'+listid+'"></div><ul></ul></div>');
+	$('.main').append(
+        '<div class="todolist">' +
+            '<div class="todolisttitle">'+listname+'</div>' +
+            '<div class="new">' +
+                '<div class="newtodo"></div>' +
+                '<input type="text" id="newtodoinput" placeholder="What you going to do?">' +
+                '<input type="hidden" id="projectid" value="'+listid+'">' +
+            '</div>' +
+            '<ul></ul>' +
+        '</div>'
+    );
 	$('.todolist').fadeIn('slow');
 }
 
@@ -64,7 +80,13 @@ function newTodo(todo,listid){
 
 //new todo creator
 function craateTodo(todo,todoid,checkclass,contentclass){
-	$(".todolist ul").append("<li id='"+$(".todolist ul li").size()+"'><div class='"+checkclass+"' todo-id='"+todoid+"' data-id='"+$(".todolist ul li").size()+"'></div><div class='"+contentclass+"'>"+todo+"</div><div class='clear'></div></li>");
+	$(".todolist ul").append(
+        "<li id='"+$(".todolist ul li").size()+"'>" +
+            "<div class='"+checkclass+"' todo-id='"+todoid+"' data-id='"+$(".todolist ul li").size()+"'></div>" +
+            "<div class='"+contentclass+"'>"+todo+"</div>" +
+            "<div class='clear'></div>" +
+        "</li>"
+    );
 }
 
 // check todo post
@@ -123,6 +145,11 @@ function getTodoLists(){
     if (localStorage.getItem("listname") !== 'undefined' && localStorage.getItem("listname") !== null){
         $('.newlist').hide();
         createTodoList(localStorage.getItem("listname"),"1");
+        for(var i = 1; i <= localStorage.getItem('rowcount'); i++){
+            console.log(i);
+            craateTodo(localStorage.getItem('row['+i+']'),i,'todolistcheck','todolistcontent');
+
+        }
     }
     //localStorage.removeItem("name");
 }
