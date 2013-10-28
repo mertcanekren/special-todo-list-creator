@@ -146,9 +146,7 @@ function getTodoLists(){
         $('.newlist').hide();
         createTodoList(localStorage.getItem("listname"),"1");
         for(var i = 1; i <= localStorage.getItem('rowcount'); i++){
-            console.log(i);
             craateTodo(localStorage.getItem('row['+i+']'),i,'todolistcheck','todolistcontent');
-
         }
     }
     //localStorage.removeItem("name");
