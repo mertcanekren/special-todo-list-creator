@@ -2,7 +2,9 @@ $(function(){
 
     Storage();
 
-	// Get lists
+	/**
+     * Todo list viewer 
+     */
 	getTodoLists();
 
 	$('.newlist').click(function(){
