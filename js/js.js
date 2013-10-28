@@ -13,7 +13,9 @@ $(function(){
 		});
 	});
 
-	// new list
+	/**
+     * New list submit button
+     */
 	$('#listsubmit').click(function(){
 	    newList($('#listname').val());
 	});	 
