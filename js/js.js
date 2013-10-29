@@ -13,7 +13,7 @@ $(function(){
 		});
 	});
 
-	/**
+	/** 
      * New list submit button
      */
 	$('#listsubmit').click(function(){
@@ -26,7 +26,9 @@ $(function(){
             var todo = $("#newtodoinput").val();
             if(todo){
                 newTodo(todo,$('#projectid').val());
-                localStorage.setItem("row["+$(".todolist ul li").size()+"]", todo);
+                localStorage.setItem("row["+$(".todolist ul li").size()+"].todo", todo);
+                localStorage.setItem("row["+$(".todolist ul li").size()+"].checkclass","todolistcheck");
+                localStorage.setItem("row["+$(".todolist ul li").size()+"].contentclass", "todolistcontent");
                 if (localStorage.rowcount){
                     localStorage.rowcount=Number(localStorage.rowcount)+1;
                 }else{
@@ -150,7 +152,7 @@ function getTodoLists(){
         $('.newlist').hide();
         createTodoList(localStorage.getItem("listname"),"1");
         for(var i = 1; i <= localStorage.getItem('rowcount'); i++){
-            craateTodo(localStorage.getItem('row['+i+']'),i,'todolistcheck','todolistcontent');
+            craateTodo(localStorage.getItem('row['+i+'].todo'),i,'todolistcheck','todolistcontent');
         }
     }
     //localStorage.removeItem("name");
