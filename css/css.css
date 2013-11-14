@@ -207,6 +207,14 @@ body{
 	color: #a9a9a9;
 	text-decoration: line-through;
 }
+.todolist ul li div.delete_row{
+    color: red;
+    float: right;
+    font-size: 12px;
+    margin-top: -20px;
+    display: none;
+    cursor: pointer;
+}
 .footer{
 	margin: 10px auto;
 	position: relative;

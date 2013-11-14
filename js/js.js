@@ -46,7 +46,20 @@ $(function(){
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcontent").addClass('todolistcontentfnish');
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcheck").addClass('todolistchecked');
 	});
+/*
+    $('.todolist ul li').hover(function(){
+        $('.delete_row'+$(this).attr('id')).show();
+    },function() {
+        $('.delete_row'+$(this).attr('id')).hide();
+    });
 
+
+    $("body").delegate(".todolist ul li div.delete_row", "click", function(){
+        console.log($(this).attr('data-id'));
+        localStorage.removeItem("row["+$(this).attr('data-id')+"].checkclass");
+        localStorage.removeItem("row["+$(this).attr('data-id')+"].todo");
+        localStorage.removeItem("row["+$(this).attr('data-id')+"].contentclass");
+    });*/
 });
 
 // new list creator
@@ -96,6 +109,7 @@ function craateTodo(todo,todoid,checkclass,contentclass){
         "<li id='"+$(".todolist ul li").size()+"'>" +
             "<div class='"+checkclass+"' todo-id='"+todoid+"' data-id='"+$(".todolist ul li").size()+"'></div>" +
             "<div class='"+contentclass+"'>"+todo+"</div>" +
+            "<div class='delete_row delete_row"+$(".todolist ul li").size()+"' data-id='"+$(".todolist ul li").size()+"'>Delete</div>"+
             "<div class='clear'></div>" +
         "</li>"
     );
