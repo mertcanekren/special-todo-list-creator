@@ -103,8 +103,8 @@ function craateTodo(todo,todoid,checkclass,contentclass){
 
 // check todo post
 function updateTodo(todoid){
-    localStorage.setItem("row["+todoid+"].checkclass","todolistcheck todolistcontentfnish");
-    localStorage.setItem("row["+todoid+"].contentclass", "todolistcontent todolistchecked");
+    localStorage.setItem("row["+todoid+"].checkclass","todolistcheck todolistchecked");
+    localStorage.setItem("row["+todoid+"].contentclass", "todolistcontent todolistcontentfnish");
 }
 
 //get todo lists
