@@ -108,7 +108,7 @@ body{
 	border-radius: 2px;
 	background: white;
 	display: block;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 	max-width: 550px;
 	display: none;
 }
