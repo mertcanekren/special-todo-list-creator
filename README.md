@@ -9,3 +9,9 @@ ______
 Oluşturulan listeyi ve yapılacakları temizlemek için geçici olarak reset butonu eklendi
 ______
 
+______
+### v2
+
+Sqlite dan çıkartılarak localstorage yapısına geçirildi. Yeni liste oluşturma, listeye öge ekleme ve eklenilen ögenin işaretlenmesi tamamlandı. 
+______
+
