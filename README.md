@@ -1,6 +1,6 @@
 special-todo-list-creator 
 
-https://my-blog-examples.googlecode.com/git/tutorials/todo-list/index.html
+http://mertcanekren.github.io/special-todo-list-creator/
 
 ===============================
 
