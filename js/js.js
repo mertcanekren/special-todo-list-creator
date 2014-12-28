@@ -46,20 +46,8 @@ $(function(){
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcontent").addClass('todolistcontentfnish');
 	    $(".todolist ul li#"+$(this).attr('data-id')+" div.todolistcheck").addClass('todolistchecked');
 	});
-/*
-    $('.todolist ul li').hover(function(){
-        $('.delete_row'+$(this).attr('id')).show();
-    },function() {
-        $('.delete_row'+$(this).attr('id')).hide();
-    });
 
-
-    $("body").delegate(".todolist ul li div.delete_row", "click", function(){
-        console.log($(this).attr('data-id'));
-        localStorage.removeItem("row["+$(this).attr('data-id')+"].checkclass");
-        localStorage.removeItem("row["+$(this).attr('data-id')+"].todo");
-        localStorage.removeItem("row["+$(this).attr('data-id')+"].contentclass");
-    });*/
+    
 });
 
 // new list creator
@@ -123,44 +111,6 @@ function updateTodo(todoid){
 
 //get todo lists
 function getTodoLists(){
-    /*
-	$.ajax({
-        type: "GET",
-        url: "crd/select.php?getlist=1",
-        success: function (data) {
-        	if(data != ""){        		
-				results = JSON.parse(data);
-				if(results.length > 0){
-					$('.newlist').hide();
-					$('.reset').fadeIn();
-				}
-				for (var i = 0, len = results.length; i < len; i++) {				
-					createtodolist(results[i].name,results[i].id)
-				}
-			}				      
-        }            
-    });
-    $.ajax({
-        type: "GET",
-        url: "crd/select.php?gettodo=1",
-        success: function (data) {
-        	if(data){        		
-				results = JSON.parse(data);
-				for (var i = 0, len = results.length; i < len; i++) {	
-					if(results[i].status == "1"){
-						var checkclass = "todolistcheck";
-						var contentclass = "todolistcontent";
-					}else{
-						var checkclass = "todolistcheck todolistchecked";
-						var contentclass = "todolistcontent todolistcontentfnish";
-					}
-					craatetodo(results[i].title,results[i].id,checkclass,contentclass);
-				}
-			}				      
-        }            
-    });
-    */
-
     if (localStorage.getItem("listname") !== 'undefined' && localStorage.getItem("listname") !== null){
         $('.newlist').hide();
         createTodoList(localStorage.getItem("listname"),"1");
@@ -173,7 +123,6 @@ function getTodoLists(){
             );
         }
     }
-    //localStorage.removeItem("name");
 }
 
 function Storage(){

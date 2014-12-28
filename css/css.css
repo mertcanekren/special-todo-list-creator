@@ -189,6 +189,7 @@ body{
 	margin-left: 10px;
 	background-repeat:no-repeat;
 	opacity: 0.5;
+	cursor: pointer;
 }
 .todolist ul li div.todolistcheck:hover{
 	opacity: 1;
